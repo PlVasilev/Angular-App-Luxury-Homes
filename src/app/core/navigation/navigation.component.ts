@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navigation',
@@ -7,9 +7,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { }
+  constructor() { 
+    this.isMenuClicked = false;
+  }
+
+  isMenuClicked: boolean;
 
   ngOnInit() {
   }
 
+  toggleMenu(event){
+    this.isMenuClicked = !this.isMenuClicked;  
+    console.log(this.isMenuClicked);     
+  }
 }

@@ -7,6 +7,7 @@ export interface IListing {
     price: number;
     size: number;
     rooms: number;
+    floor: number;
     postedOn: string;
     postedBy: string;
     imageUrl: string;
