@@ -15,7 +15,7 @@ export class NavigationService {
   }
 
   toggleMenu(event){
-    this.isMenuClicked = !this.isMenuClicked;  
+    this.isMenuClicked = !!this.isMenuClicked;  
     console.log(this.isMenuClicked);     
   }
 }

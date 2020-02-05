@@ -16,8 +16,5 @@ export class NavigationComponent implements OnInit {
   ngOnInit() {
   }
 
-  toggleMenu(event){
-    this.isMenuClicked = !this.isMenuClicked;  
-    console.log(this.isMenuClicked);     
-  }
+
 }
