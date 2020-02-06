@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { ListingService } from '../listing/listing.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,11 +8,14 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+  constructor(private listingService: ListingService) { }
 
  
 
   ngOnInit() {
+    this.listingService.loadListings();
+    
+    
   }
 
 }

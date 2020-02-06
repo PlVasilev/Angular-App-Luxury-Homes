@@ -2420,7 +2420,7 @@ textarea.form-control {
 }
 
 .valid-feedback {
-  display: none;
+  display: block;
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
@@ -2524,7 +2524,7 @@ textarea.form-control {
 }
 
 .invalid-feedback {
-  display: none;
+  display: block;
   width: 100%;
   margin-top: 0.25rem;
   font-size: 80%;
@@ -5593,15 +5593,15 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .jumbotron {
-  padding: 2rem 1rem;
-  margin-bottom: 2rem;
+  padding: 1rem 1rem;
+  margin-bottom: 0rem;
   background-color: #1c1e22;
   border-radius: 0.3rem;
 }
 
 @media (min-width: 576px) {
   .jumbotron {
-    padding: 4rem 2rem;
+    padding: 1rem 1rem;
   }
 }
 

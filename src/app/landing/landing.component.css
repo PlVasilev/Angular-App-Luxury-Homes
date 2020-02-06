@@ -1,0 +1,12 @@
+.site-blocks-cover{
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+}
+
+.site-blocks-cover h1{
+    color: rgb(255, 251, 251);
+    font-size: 4rem;
+    padding-bottom: 2rem;
+    text-shadow: 0.2rem 0.2rem black;
+}

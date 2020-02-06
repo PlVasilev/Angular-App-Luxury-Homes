@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavigationService } from './core/navigation/navigation.service';
+
 
 @Component({
   selector: 'app-root',
@@ -8,7 +8,7 @@ import { NavigationService } from './core/navigation/navigation.service';
 })
 export class AppComponent {
 
-
+ 
 
 
   title = 'luxury-homes';
