@@ -1,4 +1,5 @@
 import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { UserServiceLH } from 'src/app/user/user.service';
 
 @Component({
   selector: 'app-navigation',
@@ -7,11 +8,14 @@ import { Component, OnInit, EventEmitter, Output } from '@angular/core';
 })
 export class NavigationComponent implements OnInit {
 
-  constructor() { 
-    this.isMenuClicked = false;
+  constructor(private userService: UserServiceLH) {   
   }
 
-  isMenuClicked: boolean;
+  get currentUser(){return this.userService.user}
+
+  logoutHandler(){
+    this.userService.logout();
+  }
 
   ngOnInit() {
   }

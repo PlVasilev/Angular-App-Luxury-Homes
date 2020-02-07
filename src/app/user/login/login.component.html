@@ -2,20 +2,17 @@
     <div class="row">
         <div class="col-lg-4"></div>
         <div class="col-lg-4">
-            <h1>Registration Form</h1>
+            <h1>Log in Form</h1>
             <form #loginFrom="ngForm" (ngSubmit)="loginHandler(loginFrom.value)">
                 <div class="form-group input-group">
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                     </div>
-                    <input #usernameInput="ngModel" ngModel name="username" class="form-control" placeholder="Username"
+                    <input #usernameInput="ngModel" [ngModel]="username" name="username" class="form-control" placeholder="Username"
                         required pattern="\w{3,}">
-                        <div *ngIf="usernameInput.errors.required && usernameInput.touched" class="invalid-feedback">Success! You've
-                            done it.</div>
-                    <div *ngIf="usernameInput.valid && usernameInput.touched" class="valid-feedback">Success! You've
+                    <div *ngIf="!usernameInput.errors && usernameInput.touched" class="valid-feedback">Success! You've
                         done it.</div>
-                    <div *ngIf="usernameInput.errors.pattern && usernameInput.touched" class="invalid-feedback">Sorry, that
-                        username's taken. Try another?</div>
+                    <div *ngIf="usernameInput.errors && usernameInput.touched" class="invalid-feedback">Username must be at least 4 character long</div>
                      
                 </div>
 
@@ -23,8 +20,11 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
                     </div>
-                    <input ngModel name="password" class="form-control" placeholder="Password" type="password" required
+                    <input #passwordInput="ngModel" ngModel name="password" class="form-control" placeholder="Password" type="password" required
                         minlength="3">
+                        <div *ngIf="!passwordInput.errors && passwordInput.touched" class="valid-feedback">Success! You've
+                            done it.</div>
+                        <div *ngIf="passwordInput.errors && passwordInput.touched" class="invalid-feedback">Password must be at least 4 character long</div>
                 </div>
                 <div class="form-group">
                     <button [disabled]="loginFrom.invalid" type="submit" class="btn btn-primary btn-block"> Log In
@@ -37,6 +37,6 @@
     </div>
 </div>
 
+{{usernameInput.value}}
 
-
-<!-- {{loginFrom.value | json}} -->
+ {{loginFrom.value | json}} 

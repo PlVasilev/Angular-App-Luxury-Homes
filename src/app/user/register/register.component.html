@@ -1,65 +1,77 @@
 <div class="container">
-    <div class="row">
-      <div class="col-lg-4"></div>
-      <div class="col-lg-4">
-        <h1>Registration Form</h1>
-        <form #registerFrom="ngForm">
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
-            </div>
-            <input ngModel name="fullName" class="form-control" placeholder="Full Name" required>
+  <div class="row">
+    <div class="col-lg-4"></div>
+    <div class="col-lg-4">
+      <h1>Registration Form</h1>
+      <form #registerFrom="ngForm" (ngSubmit)="submitHandler(registerFrom.value)">
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
-            </div>
-            <input ngModel name="email" class="form-control" placeholder="Email Address" type="email" required email>
+          <input #usernameInput="ngModel" ngModel name="userName" class="form-control" placeholder="Username" required pattern="\w{3,}">
+          <div *ngIf="!usernameInput.errors && usernameInput.touched" class="valid-feedback">Success! You've done it.</div>
+          <div *ngIf="usernameInput.errors && usernameInput.touched" class="invalid-feedback">Input must be least 3 characters log.</div>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
-            </div>
-            <select ngModel name="phoneCode"  class="custom-select" style="max-width: 120px;" required>
-              <option value="+971">+971</option>
-              <option value="+359">+359</option>
-              <option value="+972">+972</option>
-              <option value="+198">+198</option>
-              <option value="+701">+701</option>
-            </select>
-            <input ngModel name="phoneNumber"  class="form-control" placeholder="Phone number" type="text" required>
+          <input #firstNameInput="ngModel" ngModel name="firstName" class="form-control" placeholder="First Name"
+            required pattern="\w{3,}">
+            <div *ngIf="!firstNameInput.errors && firstNameInput.touched" class="valid-feedback">Success! You've done it.</div>
+            <div *ngIf="firstNameInput.errors && firstNameInput.touched" class="invalid-feedback">Input must be least 3 characters log.</div>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
           </div>
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-building"></i> </span>
-            </div>
-            <select ngModel name="position" class="form-control" required>
-              <option value="Designer">Designer</option>
-              <option value="Manager">Manager</option>
-              <option value="Accounting">Accounting</option>
-            </select>
+          <input #lastNameInput="ngModel" ngModel name="lastName" class="form-control" placeholder="Last Name" required pattern="\w{3,}">
+          <div *ngIf="!lastNameInput.errors && lastNameInput.touched" class="valid-feedback">Success! You've done it.</div>
+          <div *ngIf="lastNameInput.errors && lastNameInput.touched" class="invalid-feedback">Input must be least 3 characters log.</div>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
           </div>
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-            </div>
-            <input ngModel name="password" class="form-control" placeholder="Create password" type="password" required>
+          <input #emailInput="ngModel" ngModel name="email" class="form-control" placeholder="Email Address"
+            type="email" required email>
+          <div *ngIf="!emailInput.errors && emailInput.touched" class="valid-feedback">Success! You've done it.</div>
+          <div *ngIf="emailInput.errors && emailInput.touched" class="invalid-feedback">You must enter valid Email</div>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
           </div>
-          <div class="form-group input-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
-            </div>
-            <input ngModel name="repeatPassword" class="form-control" placeholder="Repeat password" type="password" required>
-          </div>
-          <div class="form-group">
-            <button [disabled]="registerFrom.invalid" type="submit" class="btn btn-primary btn-block"> Create Account </button>
-          </div>
-          <p class="text-center">Have an account? <a href="">Log In</a> </p>
-        </form>
-    
-      </div>
-      <div class="col-lg-4"></div>
-    </div>
-  </div>
+          <input #phoneNumberInput="ngModel" ngModel name="phoneNumber" class="form-control" placeholder="Phone number"type="text">
+        </div>
 
-    <!-- {{registerFrom.value | json}} -->
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input #passwordInput="ngModel" ngModel name="password" class="form-control" placeholder="Create password"type="password" required pattern="\w{3,}">
+          <div *ngIf="!passwordInput.errors && passwordInput.touched" class="valid-feedback">Success! You've done it.</div>
+          <div *ngIf="passwordInput.errors && passwordInput.touched" class="invalid-feedback">Input must be least 3 characters log.</div>
+        </div>
+        <div class="form-group input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+          </div>
+          <input #repeatPasswordInput="ngModel" ngModel name="repeatPassword" class="form-control" placeholder="Repeat password" type="password" required pattern="\w{3,}">
+          <div *ngIf="!repeatPasswordInput.errors && repeatPasswordInput.touched" class="valid-feedback">Success! You've done it.</div>
+          <div *ngIf="repeatPasswordInput.errors && repeatPasswordInput.touched" class="invalid-feedback">Input must be least 3 characters log.</div>
+          <div *ngIf="passwordInput.value != repeatPasswordInput.value" class="invalid-feedback">Password dont match</div>
+        </div>
+        <div class="form-group">
+          <button [disabled]="registerFrom.invalid || passwordInput.value != repeatPasswordInput.value " type="submit" class="btn btn-primary btn-block"> Create Account
+          </button>
+        </div>
+        <p class="text-center">Have an account? <a href="">Log In</a> </p>
+      </form>
+
+    </div>
+    <div class="col-lg-4"></div>
+  </div>
+</div>
+
+{{registerFrom.value | json}}

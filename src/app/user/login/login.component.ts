@@ -1,41 +1,42 @@
 import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { UserServiceLH } from '../user.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements AfterViewInit {
+export class LoginComponent {
 
-  @ViewChild('loginFrom',{ static: true }) public from: NgForm
+  @ViewChild('loginFrom', { static: true }) from: NgForm
 
-  constructor() { }
+  constructor(private userService: UserServiceLH) {}
 
-  ngOnInit() {
-  }
+  username = "username"
 
-  loginHandler(data){
+  loginHandler(data) {
     console.log(data);
-    
+    this.userService.login(data.username, data.password)
+    this.userService.verify()
+    // this.changeInput();
+    this.from.reset();
   }
-  
-ngAfterViewInit(){
- this.from.form.patchValue({
-  username: 'My name :))))))))))))))'
- })
 
- 
-//  onSubmit() {
-//   const body = this.form.value;
-//   // Send body to an API
-//   this.form.reset();}
+  changeInput() {
+    this.from.form.patchValue({
+      username: '16GB'
+    });
 
-
+  }
 }
-  
-}
-  
-  
+
+
+
+
+
+
+
+
 
 
