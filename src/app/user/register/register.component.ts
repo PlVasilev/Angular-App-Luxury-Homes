@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { UserServiceLH } from '../user.service';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -7,13 +9,15 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent implements OnInit {
+export class RegisterComponent {
 
-  ngOnInit() {
-  }
+  constructor( private userService: UserServiceLH){}
 
-  submitHandler(data) {
-    console.log(data);
+  @ViewChild('registerFrom', { static: true }) from: NgForm
+
+  registerHandler(data) {
+    this.userService.signup(data)
+    this.from.reset();
   }
 
 

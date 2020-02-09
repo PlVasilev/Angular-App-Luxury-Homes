@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ListingService } from '../listing.service';
 
 @Component({
   selector: 'app-all',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AllComponent implements OnInit {
 
-  constructor() { }
+  constructor(private listingService: ListingService) { }
 
   ngOnInit() {
+   this.listingService.find()
+   
+   
+     
   }
 
 }

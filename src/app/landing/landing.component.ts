@@ -13,7 +13,7 @@ export class LandingComponent implements OnInit {
  
 
   ngOnInit() {
-    this.listingService.loadListings();
+   
     
     
   }

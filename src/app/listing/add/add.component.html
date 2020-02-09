@@ -1,1 +1,68 @@
-<p>add works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-lg-4"></div>
+      <div class="col-lg-4">
+        <h1>Add Property</h1>
+        <form #addListingForm="ngForm" (ngSubmit)="addListingHandler(addListingForm.value)">
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input #usernameInput="ngModel" ngModel name="username" class="form-control" placeholder="Username"
+              [class.is-valid]="!usernameInput.errors && usernameInput.touched"
+              [class.is-invalid]="usernameInput.errors && usernameInput.touched" required pattern="\w{3,}">
+            <div *ngIf="usernameInput.errors && usernameInput.touched" class="invalid-feedback">Input must be least 3
+              characters log.</div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input #firstNameInput="ngModel" ngModel name="firstName" class="form-control" placeholder="First Name"
+              [class.is-valid]="!firstNameInput.errors && firstNameInput.touched"
+              [class.is-invalid]="firstNameInput.errors && firstNameInput.touched" required pattern="\w{3,}">
+            <div *ngIf="firstNameInput.errors && firstNameInput.touched" class="invalid-feedback">Input must be least 3
+              characters log.</div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+            </div>
+            <input #lastNameInput="ngModel" ngModel name="lastname" class="form-control" placeholder="Last Name"
+              [class.is-valid]="!lastNameInput.errors && lastNameInput.touched"
+              [class.is-invalid]="lastNameInput.errors && lastNameInput.touched" required pattern="\w{3,}">
+            <div *ngIf="lastNameInput.errors && lastNameInput.touched" class="invalid-feedback">Input must be least 3
+              characters log.</div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+            </div>
+            <input #emailInput="ngModel" ngModel name="email" class="form-control" placeholder="Email Address"
+              type="email" [class.is-valid]="!emailInput.errors && emailInput.touched"
+              [class.is-invalid]="emailInput.errors && emailInput.touched" required email>
+            <div *ngIf="emailInput.errors && emailInput.touched" class="invalid-feedback">You must enter valid Email</div>
+          </div>
+          <div class="form-group input-group">
+            <div class="input-group-prepend">
+              <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+            </div>
+            <input #phoneNumberInput="ngModel" ngModel name="phoneNumber" class="form-control" placeholder="Phone number"
+              type="text">
+              <input #phoneNumberInput="ngModel" ngModel name="role" class="form-control" value="user"
+              type="text" style="display: none;">
+          </div>
+  
+          
+          <div class="form-group">
+            <button [disabled]="addListingForm.invalid" type="submit"
+              class="btn btn-primary btn-block"> Create Account
+            </button>
+          </div>
+          
+        </form>
+  
+      </div>
+      <div class="col-lg-4"></div>
+    </div>
+  </div>

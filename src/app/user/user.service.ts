@@ -15,6 +15,7 @@ export class UserServiceLH {
 
   async signup(data: any) {
     try {
+      data.role = "user";
       this.user = await this.userService.signup(data);
       console.log(this.user);
     } catch (error) {

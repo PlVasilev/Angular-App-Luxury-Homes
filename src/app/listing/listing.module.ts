@@ -2,13 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AllComponent } from './all/all.component';
 import { AddComponent } from './add/add.component';
+import { FormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [AllComponent, AddComponent],
   imports: [
-    CommonModule
+    CommonModule,
+    FormsModule
   ],
   exports:[
     [AllComponent,AddComponent]

@@ -12,4 +12,7 @@ export class AddComponent implements OnInit {
   ngOnInit() {
   }
 
+  addListingHandler(){
+    
+  }
 }
