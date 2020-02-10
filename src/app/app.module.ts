@@ -11,6 +11,7 @@ import { ListingModule } from './listing/listing.module';
 import { ListingService } from './listing/listing.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
+import { UserServiceLH } from './user/user.service';
 
 
 
@@ -32,7 +33,7 @@ import { UserModule } from './user/user.module';
       appSecret: '9cb8637474184a44a038cba964ad90de'
     })
   ],
-  providers: [ListingService],
+  providers: [ListingService, UserServiceLH],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

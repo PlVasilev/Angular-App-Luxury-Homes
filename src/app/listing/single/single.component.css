@@ -1,0 +1,74 @@
+.ftco-media-1 > .ftco-media-1-inner {
+    position: relative; }
+    .ftco-media-1 > .ftco-media-1-inner:after {
+      position: absolute;
+      content: "";
+      right: 0px;
+      bottom: 0px;
+      top: 20px;
+      background: #000;
+      width: 100%;
+      z-index: -1;
+      -webkit-transition: .3s all ease;
+      -o-transition: .3s all ease;
+      transition: .3s all ease;
+      opacity: 0;
+      visibility: hidden; }
+  
+  .ftco-media-1 .ftco-media-details {
+    -webkit-transition: .3s all ease;
+    -o-transition: .3s all ease;
+    transition: .3s all ease; }
+  
+  .ftco-media-1 h3 {
+    font-size: 20px;
+    color: white;
+    margin-bottom: 0; }
+  
+  .ftco-media-1 p {
+    margin-bottom: 0; }
+  
+  .ftco-media-1 strong {
+    font-weight: normal; }
+  
+  .ftco-media-1:hover > .ftco-media-1-inner:after, .ftco-media-1:focus > .ftco-media-1-inner:after {
+    right: -20px;
+    bottom: -20px;
+    opacity: 1;
+    visibility: visible; }
+    @media (max-width: 767.98px) {
+      .ftco-media-1:hover > .ftco-media-1-inner:after, .ftco-media-1:focus > .ftco-media-1-inner:after {
+        right: 0; } }
+  
+  .ftco-media-1:hover .ftco-media-details, .ftco-media-1:focus .ftco-media-details {
+    position: relative;
+    -webkit-transform: translateX(45px);
+    -ms-transform: translateX(45px);
+    transform: translateX(45px); }
+    @media (max-width: 767.98px) {
+      .ftco-media-1:hover .ftco-media-details, .ftco-media-1:focus .ftco-media-details {
+        -webkit-transform: translateX(25px);
+        -ms-transform: translateX(25px);
+        transform: translateX(25px); } }
+  
+  .ftco-media-1:hover h3, .ftco-media-1:focus h3 {
+    color: #fff; }
+  
+  .ftco-media-1:hover p, .ftco-media-1:hover strong, .ftco-media-1:focus p, .ftco-media-1:focus strong {
+    color: #939393; }
+  
+  .ftco-testimonial-1 .ftco-testimonial-vcard img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; }
+  
+  .ftco-testimonial-1 .ftco-testimonial-vcard h3 {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0; }
+  
+  .ftco-testimonial-1 .ftco-testimonial-vcard span {
+    color: #c4c4c4; }
+  
+  .ftco-testimonial-1 p {
+    color: #a2a2a2; }

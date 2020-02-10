@@ -5,26 +5,22 @@ import { DataStoreService, Query } from 'kinvey-angular-sdk';
 @Injectable({
   providedIn: 'root'
 })
-export class ListingService {
+export class ListingService{
 
   collection: any;
-  listings: any;
+  allListings: IListing[];
+  selectedListing: IListing;
 
   constructor(datastoreService: DataStoreService) {
     this.collection = datastoreService.collection('listings');
   }
 
-  find() {
+  getAllListings() {
     this.collection.find()
-      .subscribe((entities) => {
-        console.log(entities);
-        
-        this.listings = entities;
+      .subscribe((entities) => {    
+        this.allListings = entities as IListing[];
       }, (error) => {
         console.log(error);
-       
-      }, () => {
-        // ...
       });
   }
 }

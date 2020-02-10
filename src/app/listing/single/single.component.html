@@ -1,0 +1,13 @@
+<div class="ftco-media-1">
+    <div class="ftco-media-1-inner">
+        <a href="#"  [id]="listing._id" (click)="detailsIdHandler($event)" class="d-inline-block mb-4">
+            <img src={{listing.imageUrl}}
+                alt="FImageo" class="img-fluid"></a>
+        <div class="ftco-media-details">
+        <h3>{{listing.city}}</h3>
+            <p>{{listing.address}}</p>
+            <strong>${{listing.price}}</strong>
+        </div>
+
+    </div>
+</div>
