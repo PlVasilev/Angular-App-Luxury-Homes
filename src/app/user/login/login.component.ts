@@ -1,4 +1,4 @@
-import { Component, OnInit, AfterViewInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserServiceLH } from '../user.service';
 
@@ -13,22 +13,17 @@ export class LoginComponent {
 
   constructor(private userService: UserServiceLH) {}
 
-  username = "username"
+  username = "admin";
+  password = "admin";
 
   loginHandler(data) {
     console.log(data);
     this.userService.login(data.username, data.password)
     this.userService.verify()
-    // this.changeInput();
     this.from.reset();
   }
 
-  changeInput() {
-    this.from.form.patchValue({
-      username: '16GB'
-    });
 
-  }
 }
 
 

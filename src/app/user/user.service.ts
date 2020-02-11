@@ -1,7 +1,8 @@
-import { Injectable, Output } from '@angular/core';
+import { Injectable, Output, OnInit } from '@angular/core';
 import { PingService } from 'kinvey-angular-sdk';
 import { UserService } from 'kinvey-angular-sdk/lib/';
 import { User } from 'kinvey-js-sdk/lib/';
+import { ListingService } from '../listing/listing.service';
 
 
 @Injectable({
@@ -9,15 +10,17 @@ import { User } from 'kinvey-js-sdk/lib/';
 })
 export class UserServiceLH {
 
-  constructor(private pingService: PingService, private userService: UserService) {}
+  constructor(private pingService: PingService, private userService: UserService, private listingService: ListingService) {}
 
-  user: User;
+  user: User  =  this.userService.getActiveUser();
+  
 
   async signup(data: any) {
     try {
       data.role = "user";
       this.user = await this.userService.signup(data);
       console.log(this.user);
+      this.listingService.getAllListings();
     } catch (error) {
       console.log(error);
     }
@@ -26,6 +29,7 @@ export class UserServiceLH {
   async login(username: string, password: string) {
     try {
       this.user  = await this.userService.login(username, password);
+      this.listingService.getAllListings();
       console.log(this.user);
     } catch (error) {
       console.log(error);
@@ -35,7 +39,8 @@ export class UserServiceLH {
   async logout() {
     try {
       await this.userService.logout();
-      this.user= null;
+     this.user= null;
+     this.listingService.allListings = null;
     } catch (error) {
       console.log(error);
     }

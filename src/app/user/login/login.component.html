@@ -20,7 +20,7 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text"> <i class="fa fa-user"></i> </span>
                       </div>
-                    <input #passwordInput="ngModel" ngModel name="password" class="form-control" placeholder="Password"
+                    <input #passwordInput="ngModel" [ngModel]="password" name="password" class="form-control" placeholder="Password"
                     [class.is-valid]="!passwordInput.errors && passwordInput.touched"
                     [class.is-invalid]="passwordInput.errors && passwordInput.touched"
                         type="password" required minlength="3">

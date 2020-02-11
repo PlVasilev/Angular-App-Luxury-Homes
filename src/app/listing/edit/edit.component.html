@@ -1,14 +1,14 @@
-<div class="container">
+<div class="container" *ngIf="listing">
     <div class="row">
       <div class="col-lg-4"></div>
       <div class="col-lg-4">
-        <h1>Add Property</h1>
-        <form #addListingForm="ngForm" (ngSubmit)="addListingHandler(addListingForm.value)">
+        <h1>Edit Property</h1>
+        <form #editListingForm="ngForm" (ngSubmit)="editListingHandler(editListingForm.value)">
           <div class="form-group input-group">
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input #titleInput="ngModel" ngModel name="title" class="form-control" placeholder="Title"
+            <input #titleInput="ngModel" [ngModel]="listing.title" name="title" class="form-control"  
               [class.is-valid]="!titleInput.errors && titleInput.touched"
               [class.is-invalid]="titleInput.errors && titleInput.touched" required pattern="^[\w\s]{3,}$">
             <div *ngIf="titleInput.errors && titleInput.touched" class="invalid-feedback">Input must be least 3
@@ -18,7 +18,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input #cityInput="ngModel" ngModel name="city" class="form-control" placeholder="City"
+            <input #cityInput="ngModel" [ngModel]="listing.city" name="city" class="form-control" placeholder="City"
               [class.is-valid]="!cityInput.errors && cityInput.touched"
               [class.is-invalid]="cityInput.errors && cityInput.touched" required pattern="^[\w\s]{3,}$">
             <div *ngIf="cityInput.errors && cityInput.touched" class="invalid-feedback">Input must be least 3
@@ -28,7 +28,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input #imageUrlInput="ngModel" ngModel name="imageUrl" class="form-control" placeholder="Image URL"
+            <input #imageUrlInput="ngModel" [ngModel]="listing.imageUrl" name="imageUrl" class="form-control" placeholder="Image URL"
               [class.is-valid]="!imageUrlInput.errors && imageUrlInput.touched"
               [class.is-invalid]="imageUrlInput.errors && imageUrlInput.touched" required>
             <div *ngIf="imageUrlInput.errors && imageUrlInput.touched" class="invalid-feedback">Input must be least 3
@@ -38,7 +38,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
             </div>
-            <input #priceInput="ngModel" ngModel name="price" class="form-control" placeholder="Price"
+            <input #priceInput="ngModel" [ngModel]="listing.price" name="price" class="form-control" placeholder="Price"
             type="number" required pattern="^[1-9]\d*$"
               [class.is-valid]="!priceInput.errors && priceInput.touched"
               [class.is-invalid]="priceInput.errors && priceInput.touched">
@@ -48,7 +48,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
             </div>
-            <input #yearOfConstructionInput="ngModel" ngModel name="yearOfConstruction" class="form-control" placeholder="Year of Constuction"
+            <input #yearOfConstructionInput="ngModel" [ngModel]="listing.yearOfConstruction" name="yearOfConstruction" class="form-control" placeholder="Year of Constuction"
               type="number" required pattern="^[1|2][0-9]{3}$"
               [class.is-valid]="!yearOfConstructionInput.errors && yearOfConstructionInput.touched"
               [class.is-invalid]="yearOfConstructionInput.errors && yearOfConstructionInput.touched">
@@ -58,7 +58,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>
-            <input #addressInput="ngModel" ngModel name="address" class="form-control" placeholder="Address"
+            <input #addressInput="ngModel" [ngModel]="listing.address" name="address" class="form-control" placeholder="Address"
               [class.is-valid]="!addressInput.errors && addressInput.touched"
               [class.is-invalid]="addressInput.errors && addressInput.touched" required pattern="^[\w\s]{3,}$">
             <div *ngIf="addressInput.errors && addressInput.touched" class="invalid-feedback">Input must be least 3
@@ -68,7 +68,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-user"></i> </span>
             </div>         
-            <textarea #descriptionInput="ngModel" ngModel name="description" class="form-control" placeholder="Description"
+            <textarea #descriptionInput="ngModel" [ngModel]="listing.description" name="description" class="form-control" placeholder="Description"
                [class.is-valid]="!descriptionInput.errors && descriptionInput.touched"
               [class.is-invalid]="descriptionInput.errors && descriptionInput.touched" required pattern="^[\w\s]{3,}$"></textarea>
             <div *ngIf="descriptionInput.errors && descriptionInput.touched" class="invalid-feedback">Input must be least 3
@@ -78,7 +78,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
             </div>
-            <input #sizeInput="ngModel" ngModel name="size" class="form-control" placeholder="Size in square meters"
+            <input #sizeInput="ngModel" [ngModel]="listing.size" name="size" class="form-control" placeholder="Size in square meters"
             type="number" required pattern="^[1-9]\d*$"
               [class.is-valid]="!sizeInput.errors && sizeInput.touched"
               [class.is-invalid]="sizeInput.errors && sizeInput.touched">
@@ -88,7 +88,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
             </div>
-            <input #roomsInput="ngModel" ngModel name="rooms" class="form-control" placeholder="Rooms"
+            <input #roomsInput="ngModel" [ngModel]="listing.rooms" name="rooms" class="form-control" placeholder="Rooms"
             type="number" required pattern="^[1-9]\d*$"
               [class.is-valid]="!roomsInput.errors && roomsInput.touched"
               [class.is-invalid]="roomsInput.errors && roomsInput.touched">
@@ -98,15 +98,15 @@
             <div class="input-group-prepend">
               <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
             </div>
-            <input #floorInput="ngModel" ngModel name="floor" class="form-control" placeholder="Floor"
+            <input #floorInput="ngModel" [ngModel]="listing.floor" name="floor" class="form-control" placeholder="Floor"
             type="number" required 
               [class.is-valid]="!floorInput.errors && floorInput.touched"
               [class.is-invalid]="floorInput.errors && floorInput.touched">
             <div *ngIf="floorInput.errors && floorInput.touched" class="invalid-feedback">You must enter Fllor</div>
           </div>
           <div class="form-group">
-            <button [disabled]="addListingForm.invalid" type="submit"
-              class="btn btn-primary btn-block"> Add Property
+            <button [disabled]="editListingForm.invalid" type="submit"
+              class="btn btn-primary btn-block"> Edit Property
             </button>
           </div>
           
@@ -115,5 +115,6 @@
       </div>
       <div class="col-lg-4"></div>
     </div>
+    {{editListingForm.value | json}}
   </div>
-<!-- {{addListingForm.value | json}} -->
+

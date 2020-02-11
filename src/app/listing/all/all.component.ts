@@ -9,22 +9,18 @@ import { IListing } from 'src/app/shared/Interfaceses/listing';
 })
 export class AllComponent implements OnInit {
 
-allListings: IListing[];
-listingId = null;
+  get allListings() { return this.listingService.allListings; }
+
+  listingId = null;
 
   constructor(private listingService: ListingService) { }
 
   async ngOnInit() {
-    this.listingService.collection.find()
-    .subscribe((entities) => {    
-      this.allListings = entities as IListing[];
-    }, (error) => {
-      console.log(error);
-    });         
+    this.listingService.getAllListings();    
   }
 
   detailsHandler(listing: IListing){
-    
+    this.listingService.selectedListing = listing;
   }
 
   fromChild(event){

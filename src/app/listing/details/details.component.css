@@ -1,0 +1,16 @@
+.property-details{
+    padding-top: 2rem;
+}
+
+p{
+    font-size: 1.2rem;
+}
+
+h3{
+    color: white;
+}
+ img{
+    display: block;
+    margin-left: auto;
+    margin-right: auto  
+}

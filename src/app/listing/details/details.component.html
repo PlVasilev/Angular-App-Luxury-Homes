@@ -1,0 +1,31 @@
+<div *ngIf="selectedListing" class="site-section" id="property-details">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 pl-lg-5 ml-auto">
+          <h3 class="text-black mb-4">{{selectedListing.title}}</h3>
+        </div>
+       
+        <div class="col-lg-12">
+          
+          <div class="owl-carousel slide-one-item with-dots">
+            <div><img src= {{selectedListing.imageUrl}} alt="Image" class="img-fluid"></div>
+            
+          </div>
+        </div>
+        <div class="col-lg-12 pl-lg-5 ml-auto">
+          <div class="mb-5 property-details">
+          <p>Price: $ {{selectedListing.price}}</p>
+          <p>City: {{selectedListing.city}}</p>
+          <p>Address: {{selectedListing.address}}</p>
+          <p>{{selectedListing.size}} square meters, {{selectedListing.rooms}} rooms, {{selectedListing.floor}} floor </p>
+          <p>Year of Consruction: {{selectedListing.yearOfConstruction}} </p>
+          <p>Posted on: {{selectedListing.postedOn}}</p>
+          <p>Posted by: {{selectedListing.postedBy}}</p>
+          <p>Description: {{selectedListing.description}}</p>
+          <p><a href="#" class="btn btn-primary">Buy Property</a>
+            <a *ngIf="user && user.data.username == selectedListing.postedBy" href="#" class="btn btn-primary">Edit</a>
+            <a *ngIf="user && user.data.username == selectedListing.postedBy" href="#" (click)="deleteHandler(selectedListing._id)" class="btn btn-primary">Delete</a></p> 
+          </div>        
+      </div>
+    </div>
+  </div>
