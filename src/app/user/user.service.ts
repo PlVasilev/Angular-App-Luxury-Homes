@@ -3,6 +3,7 @@ import { PingService } from 'kinvey-angular-sdk';
 import { UserService } from 'kinvey-angular-sdk/lib/';
 import { User } from 'kinvey-js-sdk/lib/';
 import { ListingService } from '../listing/listing.service';
+import { Router } from '@angular/router';
 
 
 @Injectable({
@@ -10,7 +11,9 @@ import { ListingService } from '../listing/listing.service';
 })
 export class UserServiceLH {
 
-  constructor(private pingService: PingService, private userService: UserService, private listingService: ListingService) {}
+  constructor(
+    private userService: UserService, 
+    private listingService: ListingService, private router: Router) {}
 
   user: User  =  this.userService.getActiveUser();
   
@@ -19,8 +22,7 @@ export class UserServiceLH {
     try {
       data.role = "user";
       this.user = await this.userService.signup(data);
-      console.log(this.user);
-      this.listingService.getAllListings();
+      this.listingService.getAllListings().then(() => this.router.navigate(['listing/all'])) ;;
     } catch (error) {
       console.log(error);
     }
@@ -29,8 +31,7 @@ export class UserServiceLH {
   async login(username: string, password: string) {
     try {
       this.user  = await this.userService.login(username, password);
-      this.listingService.getAllListings();
-      console.log(this.user);
+       this.listingService.getAllListings().then(() => this.router.navigate(['listing/all'])) ;     
     } catch (error) {
       console.log(error);
     }
@@ -41,22 +42,10 @@ export class UserServiceLH {
       await this.userService.logout();
      this.user= null;
      this.listingService.allListings = null;
+     localStorage.clear();
     } catch (error) {
       console.log(error);
     }
   }
 
-
-  async verify() {
-    try {
-      const response = await this.pingService.ping();
-      console.log("Kinvey is up! "
-                 + "Version: " + response.version
-                 + " Response: " + response.kinvey
-      );
-    } catch (error) {
-      console.log("Kinvey Ping Failed. Response: ${error.description}");
-    }
-    
-  }
 }

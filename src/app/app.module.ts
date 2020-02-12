@@ -12,6 +12,8 @@ import { ListingService } from './listing/listing.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { UserServiceLH } from './user/user.service';
+import { NotFoundComponent } from './not-found/not-found.component';
+
 
 
 
@@ -20,6 +22,7 @@ import { UserServiceLH } from './user/user.service';
   declarations: [
     AppComponent,
     LandingComponent,
+    NotFoundComponent,
   ],
   imports: [
     BrowserModule,

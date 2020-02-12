@@ -1,48 +1,48 @@
 <!-- Footer -->
-<footer class="page-footer font-small indigo">
+<footer class="font-small indigo">
 
     <!-- Footer Links -->
     <div class="container">
   
       <!-- Grid row-->
-      <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+      <div class="row text-center d-flex justify-content-center ">
   
         <!-- Grid column -->
-        <div class="col-md-2 mb-3">
+        <div class="col-md-2 ">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">About us</a>
+            <a routerLink="/user/login">Home</a>
           </h6>
         </div>
         <!-- Grid column -->
   
         <!-- Grid column -->
-        <div class="col-md-2 mb-3">
+        <div *ngIf="currentUser" class="col-md-2 ">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">Products</a>
+            <a routerLink="/listing/all">Properties</a>
           </h6>
         </div>
         <!-- Grid column -->
   
         <!-- Grid column -->
-        <div class="col-md-2 mb-3">
+        <div *ngIf="currentUser" class="col-md-2 ">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">Awards</a>
+            <a routerLink="/listing/all">Add Property</a>
           </h6>
         </div>
         <!-- Grid column -->
   
         <!-- Grid column -->
-        <div class="col-md-2 mb-3">
+        <div class="col-md-2 ">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">Help</a>
+            <a routerLink="">Contact us</a>
           </h6>
         </div>
         <!-- Grid column -->
   
         <!-- Grid column -->
-        <div class="col-md-2 mb-3">
+        <div *ngIf="currentUser" class="col-md-2 ">
           <h6 class="text-uppercase font-weight-bold">
-            <a href="#!">Contact</a>
+            <a routerLink="">Profile</a>
           </h6>
         </div>
         <!-- Grid column -->
@@ -52,12 +52,12 @@
      
     </div>
     <!-- Footer Links -->
-  
-    <!-- Copyright -->
     <div class="footer-copyright text-center py-3">© 2020 Copyright:
       <a href="https://mdbootstrap.com/education/bootstrap/"> MDBootstrap.com</a>
     </div>
     <!-- Copyright -->
+
+  
   
   </footer>
   <!-- Footer -->

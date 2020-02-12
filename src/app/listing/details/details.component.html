@@ -23,8 +23,9 @@
           <p>Posted by: {{selectedListing.postedBy}}</p>
           <p>Description: {{selectedListing.description}}</p>
           <p><a href="#" class="btn btn-primary">Buy Property</a>
-            <a *ngIf="user && user.data.username == selectedListing.postedBy" href="#" class="btn btn-primary">Edit</a>
-            <a *ngIf="user && user.data.username == selectedListing.postedBy" href="#" (click)="deleteHandler(selectedListing._id)" class="btn btn-primary">Delete</a></p> 
+            <a *ngIf="user && user.data.username == selectedListing.postedBy" routerLink="/listing/edit" class="btn btn-primary">Edit</a>
+            <a *ngIf="user && user.data.username == selectedListing.postedBy"  (click)="deleteHandler(selectedListing._id)" 
+            class="btn btn-primary">Delete</a></p> 
           </div>        
       </div>
     </div>

@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { SingleComponent } from './single/single.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
+import { ListingRoutingModule } from './listing-routing.module';
 
 
 
@@ -13,10 +14,14 @@ import { EditComponent } from './edit/edit.component';
   declarations: [AllComponent, AddComponent, SingleComponent, DetailsComponent, EditComponent],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    ListingRoutingModule
   ],
   exports:[
-    [AllComponent,AddComponent, DetailsComponent,EditComponent]
+    [AllComponent,
+      AddComponent, 
+      DetailsComponent,
+      EditComponent]
   ]
 })
 export class ListingModule { }

@@ -1,6 +1,12 @@
+footer{
+    padding-top: 1.2rem;
+    padding-bottom: 0.7rem;
+    background-color: #3A3F44;
+}
+
 .page-footer .row{
     padding: 0 !important;
     padding-top: 1rem !important;
     margin: 0 !important;
-
+    background-color: white;
 }

@@ -20,19 +20,20 @@
           </div>
           <div class="col-lg-6 ml-auto">
             
-            <h2 class="section-title mb-3">Warehouse Real Estate Template</h2>
-                <p class="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                <p>Est qui eos quasi ratione nostrum excepturi id recusandae fugit omnis ullam pariatur itaque nisi voluptas impedit  Quo suscipit omnis iste velit maxime.</p>
+            <h2 class="section-title mb-3">Luxury Homes</h2>
+                <p class="lead">Your dream home awaits you here</p>
+                <p>We are dedicated to give you a service that will blow your mind ! We dont offer you property we offer you home.</p>
 
                 <ul class="list-unstyled ul-check success">
-                  <li>Placeat maxime animi minus</li>
-                  <li>Dolore qui placeat maxime</li>
-                  <li>Consectetur adipisicing</li>
-                  <li>Lorem ipsum dolor</li>
-                  <li>Placeat molestias animi</li>
+                  <li>Over 1000 happy customers.</li>
+                  <li>Operating on 5 continets.</li>
+                  <li>In every major city</li>
+                  <li>We make internation dieals</li>
+                  <li>And so on and so on</li>
                 </ul>
 
-                <p><a href="#" class="btn btn-primary mr-2 mb-2">Get Started</a></p>
+                <p *ngIf="!currentUser"><a routerLink="/user/register" class="btn btn-primary mr-2 mb-2">Get Started</a></p>
+                <p *ngIf="currentUser"><a routerLink="/listing/all" class="btn btn-primary mr-2 mb-2">See the Properties</a></p>
             
           </div>
         </div>

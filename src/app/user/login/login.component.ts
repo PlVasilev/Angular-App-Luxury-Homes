@@ -1,6 +1,7 @@
 import { Component, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { UserServiceLH } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -11,7 +12,7 @@ export class LoginComponent {
 
   @ViewChild('loginFrom', { static: true }) from: NgForm
 
-  constructor(private userService: UserServiceLH) {}
+  constructor(private userService: UserServiceLH ) {}
 
   username = "admin";
   password = "admin";
@@ -19,7 +20,6 @@ export class LoginComponent {
   loginHandler(data) {
     console.log(data);
     this.userService.login(data.username, data.password)
-    this.userService.verify()
     this.from.reset();
   }
 

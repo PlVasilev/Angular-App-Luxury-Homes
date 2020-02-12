@@ -16,7 +16,9 @@ export class AllComponent implements OnInit {
   constructor(private listingService: ListingService) { }
 
   async ngOnInit() {
-    this.listingService.getAllListings();    
+    if(this.listingService.allListings == null){
+      await this.listingService.getAllListings();
+    }
   }
 
   detailsHandler(listing: IListing){

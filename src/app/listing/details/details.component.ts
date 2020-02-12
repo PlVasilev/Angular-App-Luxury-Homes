@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ListingService } from '../listing.service';
 import { UserServiceLH } from 'src/app/user/user.service';
 import { IListing } from 'src/app/shared/Interfaceses/listing';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -14,13 +15,17 @@ export class DetailsComponent implements OnInit {
 
   get user() {return this.userServiceLH.user}
 
-  constructor(private listingService: ListingService, private userServiceLH: UserServiceLH) { }
+  constructor(
+    private listingService: ListingService, 
+    private userServiceLH: UserServiceLH,
+    ) { }
 
   deleteHandler(id: string){
     this.listingService.deleteListing(id)
   }
 
   ngOnInit() {
+
   }
 
 }
