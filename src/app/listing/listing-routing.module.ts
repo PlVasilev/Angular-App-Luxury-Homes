@@ -4,10 +4,16 @@ import { AddComponent } from './add/add.component';
 import { DetailsComponent } from './details/details.component';
 import { AllComponent } from './all/all.component';
 import { EditComponent } from './edit/edit.component';
+import { AuthGuard } from '../auth.guard';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
     {
         path: 'listing',
+        canActivate: [AuthGuard],
+        data: {
+            isLogged: true
+        },
         children: [
             {
                 path: '',
@@ -27,7 +33,11 @@ const routes: Routes = [
                 component: EditComponent
             },
             {
-                path: 'details',
+                path: 'search',
+                component: SearchComponent
+            },
+            {
+                path: 'details/:id',
                 component: DetailsComponent
             }
         ]

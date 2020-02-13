@@ -4,6 +4,7 @@ import { UserService } from 'kinvey-angular-sdk/lib/';
 import { User } from 'kinvey-js-sdk/lib/';
 import { ListingService } from '../listing/listing.service';
 import { Router } from '@angular/router';
+import { AuthGuard } from '../auth.guard';
 
 
 @Injectable({
@@ -13,7 +14,8 @@ export class UserServiceLH {
 
   constructor(
     private userService: UserService, 
-    private listingService: ListingService, private router: Router) {}
+    private listingService: ListingService, 
+    private router: Router) {}
 
   user: User  =  this.userService.getActiveUser();
   
@@ -42,6 +44,8 @@ export class UserServiceLH {
       await this.userService.logout();
      this.user= null;
      this.listingService.allListings = null;
+     console.log( this.user);
+     
      localStorage.clear();
     } catch (error) {
       console.log(error);

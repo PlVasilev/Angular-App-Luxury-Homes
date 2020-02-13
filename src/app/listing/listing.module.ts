@@ -7,11 +7,12 @@ import { SingleComponent } from './single/single.component';
 import { DetailsComponent } from './details/details.component';
 import { EditComponent } from './edit/edit.component';
 import { ListingRoutingModule } from './listing-routing.module';
+import { SearchComponent } from './search/search.component';
 
 
 
 @NgModule({
-  declarations: [AllComponent, AddComponent, SingleComponent, DetailsComponent, EditComponent],
+  declarations: [AllComponent, AddComponent, SingleComponent, DetailsComponent, EditComponent, SearchComponent],
   imports: [
     CommonModule,
     FormsModule,

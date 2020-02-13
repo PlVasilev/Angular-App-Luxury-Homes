@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListingService } from '../listing.service';
 import { UserServiceLH } from 'src/app/user/user.service';
-import { IListing } from 'src/app/shared/Interfaceses/listing';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -18,6 +17,7 @@ export class DetailsComponent implements OnInit {
   constructor(
     private listingService: ListingService, 
     private userServiceLH: UserServiceLH,
+    private activatedRoute: ActivatedRoute,
     ) { }
 
   deleteHandler(id: string){
@@ -25,7 +25,8 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
-
+    this.listingService.findById(this.activatedRoute.snapshot.params.id)
+    localStorage.setItem("currentListing", JSON.stringify(this.selectedListing))   
   }
 
 }

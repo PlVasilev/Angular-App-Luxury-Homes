@@ -3,6 +3,7 @@ import { ListingService } from '../listing.service';
 import { IListing } from 'src/app/shared/Interfaceses/listing';
 import { UserServiceLH } from 'src/app/user/user.service';
 
+
 @Component({
   selector: 'app-edit',
   templateUrl: './edit.component.html',
@@ -19,13 +20,10 @@ export class EditComponent implements OnInit {
   }
 
   editListingHandler(data: IListing){
-    data.postedBy = this.userService.user.data.username
+    data.postedBy = this.userService.user.username;
     data._id = this.listing._id;
     var options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
     data.postedOn = new Date().toLocaleDateString('en-US', options);
     this.listingService.save(data);
-  }
-
-
-    
+  }    
 }

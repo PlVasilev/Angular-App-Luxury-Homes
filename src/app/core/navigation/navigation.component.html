@@ -24,9 +24,10 @@
       <a *ngIf="currentUser"  class="nav-link" href="#">Profile</a>
       <a *ngIf="currentUser" (click)="logoutHandler()" class="nav-link" routerLink="">Logout</a>
 
-      <form *ngIf="currentUser" class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
-      </form>
+      <!-- <form *ngIf="currentUser" #searchFrom="ngForm" (ngSubmit)="searchFormHandler(searchFrom.value)" class="form-inline my-2 my-lg-0">
+        <input #searchInput="ngModel" ngModel name="search" class="form-control mr-sm-2" type="text" placeholder="Search">
+        <button class="btn btn-secondary my-2 my-sm-0" >Search</button>
+      </form> -->
+  
     </div> 
 </nav>

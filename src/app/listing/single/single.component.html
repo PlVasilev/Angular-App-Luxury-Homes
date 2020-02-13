@@ -1,13 +1,12 @@
 <div class="ftco-media-1">
     <div class="ftco-media-1-inner">
-        <a routerLink="/listing/details"  [id]="listing._id" (click)="detailsIdHandler(listing._id)" class="d-inline-block mb-4">
+        <a  [id]="listing._id" (click)="detailsIdHandler(listing._id)" class="d-inline-block mb-4">
             <img src={{listing.imageUrl}}
                 alt="FImageo" class="img-fluid"></a>
         <div class="ftco-media-details">
         <h3>{{listing.city}}</h3>
-            <p>{{listing.address}}</p>
+            <p>{{listing.title}}</p>
             <strong>${{listing.price}}</strong>
         </div>
-
     </div>
 </div>

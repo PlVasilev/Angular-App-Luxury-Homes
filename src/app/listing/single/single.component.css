@@ -1,3 +1,7 @@
+a{
+  cursor: pointer;
+}
+
 .ftco-media-1 > .ftco-media-1-inner {
     position: relative; }
     .ftco-media-1 > .ftco-media-1-inner:after {

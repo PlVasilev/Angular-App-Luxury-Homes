@@ -1,24 +1,22 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { ListingService } from '../listing.service';
-import { IListing } from 'src/app/shared/Interfaceses/listing';
 import { NgForm } from '@angular/forms';
+import { IListing } from 'src/app/shared/Interfaceses/listing';
 
 @Component({
-  selector: 'app-all',
-  templateUrl: './all.component.html',
-  styleUrls: ['./all.component.css']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.css']
 })
-export class AllComponent implements OnInit {
+export class SearchComponent  {
 
-  get allListings() { return this.listingService.allListings; }
+  get allListings() { return this.listingService.searchCollection; }
 
   listingId = null;
 
   constructor(private listingService: ListingService) { }
 
-  async ngOnInit() {
-      await this.listingService.getAllListings();
-  }
+ 
   @ViewChild('searchFrom', { static: true }) from: NgForm
   
   searchFormHandler(value){  

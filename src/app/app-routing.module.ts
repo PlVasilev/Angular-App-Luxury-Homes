@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { LandingComponent } from './landing/landing.component';
+import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 
 const routes: Routes = [
@@ -9,6 +10,10 @@ const routes: Routes = [
     path: '',
     pathMatch: 'full',
     component: LandingComponent
+  },
+  {
+    path: 'notauthorized',
+    component: NotAuthorizedComponent
   },
   {
     path: '**',

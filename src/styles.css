@@ -2637,10 +2637,11 @@ textarea.form-control {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding-top: 0.9rem;
+  justify-content: center;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
+  margin-right: 0.25rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -2655,6 +2656,7 @@ textarea.form-control {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    justify-content: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -2678,6 +2680,7 @@ textarea.form-control {
         -ms-flex-align: center;
             align-items: center;
     margin-bottom: 0;
+    justify-content: center;
   }
   .form-inline .form-control {
     display: inline-block;
@@ -5599,7 +5602,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 }
 
 .jumbotron {
-  min-height: 82vh;
+  min-height: 79.5vh;
   padding: 0;
   margin-bottom: 0rem;
   background-color: #1c1e22;
@@ -5608,7 +5611,7 @@ a.badge-dark:focus, a.badge-dark.focus {
 
 @media (min-width: 576px) {
   .jumbotron {
-    min-height: 82vh;
+    min-height: 82.6vh;
     padding: 0;
   }
 }
