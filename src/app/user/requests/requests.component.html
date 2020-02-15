@@ -1,0 +1,22 @@
+<div class="jumbotron">
+<table class="table table-striped">
+  <thead>
+  <tr>  
+    <th  style="width: 22.00%">Send On</th>
+    <th  style="width: 10.00%">Send By</th>
+    <th  style="width: 45.00%">Propery Tittle</th>
+    <th  style="width: 15.00%">Sender E-mail</th>
+    <th  style="width: 8.00%">Remove</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let request of allRequests">
+    <td>{{request.requestedOn | date: 'medium'}}</td>
+    <td>{{ request.requestedBy }}</td>
+    <td>{{ request.name  }}</td>
+    <td>{{ request.email  }}</td>
+    <td><button class="btn btn-secondary" (click)="removeRequest(request._id)">Remove</button></td>
+  </tr>
+  </tbody>
+</table>
+</div>

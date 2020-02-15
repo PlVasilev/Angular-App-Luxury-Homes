@@ -4,11 +4,12 @@ import { RegisterComponent } from './register/register.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { UserRoutingModule } from './user-routing.module';
+import { RequestsComponent } from './requests/requests.component';
 
 
 
 @NgModule({
-  declarations: [RegisterComponent, LoginComponent],
+  declarations: [RegisterComponent, LoginComponent, RequestsComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -16,7 +17,7 @@ import { UserRoutingModule } from './user-routing.module';
     UserRoutingModule
   ],
   exports:[
-    [RegisterComponent, LoginComponent]
+    [RegisterComponent, LoginComponent,RequestsComponent]
   ]
 })
 export class UserModule { }

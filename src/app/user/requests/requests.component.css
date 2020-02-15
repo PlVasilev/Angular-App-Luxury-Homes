@@ -1,0 +1,8 @@
+.table td{
+    padding: 0 1em;
+    vertical-align: middle;
+}
+
+.btn-secondary{
+    padding: 0.2em 0.4em;
+}

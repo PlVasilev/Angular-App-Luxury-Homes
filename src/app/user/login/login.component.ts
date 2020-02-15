@@ -14,8 +14,8 @@ export class LoginComponent {
 
   constructor(private userService: UserServiceLH ) {}
 
-  username = "admin";
-  password = "admin";
+ // username = "admin";
+ // password = "admin";
 
   loginHandler(data) {
     console.log(data);

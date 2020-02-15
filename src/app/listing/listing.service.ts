@@ -39,6 +39,7 @@ export class ListingService {
         console.log(error);
       });
     localStorage.removeItem('currentListing');
+    this.getAllListings();
     this.router.navigate(['listing/all']);
   }
 

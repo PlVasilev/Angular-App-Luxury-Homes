@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ListingService } from '../listing.service';
 import { UserServiceLH } from 'src/app/user/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IRequest } from 'src/app/shared/Interfaceses/request';
+
 
 @Component({
   selector: 'app-details',
@@ -22,6 +24,21 @@ export class DetailsComponent implements OnInit {
 
   deleteHandler(id: string){
     this.listingService.deleteListing(id)
+  }
+
+  sendRequestHandler(){
+    var currentRequest: IRequest;
+    var date = new Date();
+    currentRequest = {
+      requestedOn: date.getTime(),
+      name: this.selectedListing.title,
+      requestedBy: this.userServiceLH.user.username,
+      email: this.userServiceLH.user.email,
+      postedBy: this.selectedListing.postedBy   
+    };
+    console.log(currentRequest);
+    
+   this.userServiceLH.saveRequest(currentRequest)
   }
 
   ngOnInit() {

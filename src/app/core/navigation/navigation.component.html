@@ -21,7 +21,7 @@
 
       <a *ngIf="!currentUser" class="nav-link" routerLink="/user/login">Login</a>
       <a *ngIf="!currentUser" class="nav-link" routerLink="/user/register">Register</a>
-      <a *ngIf="currentUser"  class="nav-link" href="#">Profile</a>
+      <a *ngIf="currentUser"  class="nav-link" routerLink="/user/requests">Customer Requests</a>
       <a *ngIf="currentUser" (click)="logoutHandler()" class="nav-link" routerLink="">Logout</a>
 
       <!-- <form *ngIf="currentUser" #searchFrom="ngForm" (ngSubmit)="searchFormHandler(searchFrom.value)" class="form-inline my-2 my-lg-0">
