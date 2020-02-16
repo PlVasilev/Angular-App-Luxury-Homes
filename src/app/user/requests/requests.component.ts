@@ -13,8 +13,7 @@ export class RequestsComponent implements OnInit {
     this.userService.getAllReqests();
     
   }
-  constructor(private userService: UserServiceLH, private router: Router,){
-
+  constructor(private userService: UserServiceLH, private router: Router){
   }
 
   get allRequests(){ return this.userService.allRequests}

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { KinveyModule } from 'kinvey-angular-sdk';
+import { NotifierModule, NotifierOptions } from "angular-notifier";
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -16,6 +17,49 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 
 
+/**
+ * Custom angular notifier options
+ */
+const customNotifierOptions: NotifierOptions = {
+  position: {
+		horizontal: {
+			position: 'right',
+			distance: 12
+		},
+		vertical: {
+			position: 'top',
+			distance: 60,
+			gap: 10
+		}
+	},
+  theme: 'material',
+  behaviour: {
+    autoHide: 5000,
+    onClick: 'hide',
+    onMouseover: 'pauseAutoHide',
+    showDismissButton: true,
+    stacking: 4
+  },
+  animations: {
+    enabled: true,
+    show: {
+      preset: 'slide',
+      speed: 300,
+      easing: 'ease'
+    },
+    hide: {
+      preset: 'fade',
+      speed: 300,
+      easing: 'ease',
+      offset: 50
+    },
+    shift: {
+      speed: 300,
+      easing: 'ease'
+    },
+    overlap: 150
+  }
+};
 
 
 
@@ -33,6 +77,7 @@ import { NotAuthorizedComponent } from './not-authorized/not-authorized.componen
     ListingModule,
     UserModule,
     HttpClientModule,
+    NotifierModule.withConfig(customNotifierOptions),
     KinveyModule.init({
       appKey: 'kid_H1d8X3prX',
       appSecret: '9cb8637474184a44a038cba964ad90de'

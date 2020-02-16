@@ -1,5 +1,6 @@
 <div class="jumbotron">
-<table class="table table-striped">
+  <h1 *ngIf="allRequests && allRequests.length == 0" >THERE ARE NO REQUEST FOR YOU PROPERTIES</h1>
+<table *ngIf="allRequests && allRequests.length > 0"  class="table table-striped">
   <thead>
   <tr>  
     <th  style="width: 22.00%">Send On</th>
