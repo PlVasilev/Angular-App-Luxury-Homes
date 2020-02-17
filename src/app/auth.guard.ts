@@ -16,11 +16,24 @@ export class AuthGuard implements CanActivate {
       ) { }
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     if(this.userService.user){
-        this.isLogged = true       
+        this.isLogged = true;
+        if(this.userService.user.username === "admin") {
+          this.isAdmin = true;
+          console.log(this.isAdmin);
+          
+        }else{
+          console.log(this.isAdmin);
+        }
     }
-    if (this.isLogged === route.data.isLogged){
+
+
+    if (this.isLogged === route.data.isLogged){   
         return true;
-    }else{
+    }
+    else if(this.isAdmin === route.data.isAdmin){
+      return true;
+    }
+    else{
         this.router.navigateByUrl('/notauthorized');
     }
   }

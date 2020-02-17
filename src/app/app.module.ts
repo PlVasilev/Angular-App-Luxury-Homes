@@ -15,6 +15,10 @@ import { UserModule } from './user/user.module';
 import { UserServiceLH } from './user/user.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
+import { AdministrationModule } from './administration/administration.module';
+
+
+
 
 
 /**
@@ -76,6 +80,7 @@ const customNotifierOptions: NotifierOptions = {
     CoreModule,
     ListingModule,
     UserModule,
+    AdministrationModule,
     HttpClientModule,
     NotifierModule.withConfig(customNotifierOptions),
     KinveyModule.init({

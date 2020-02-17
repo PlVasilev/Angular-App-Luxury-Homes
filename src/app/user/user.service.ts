@@ -23,7 +23,7 @@ export class UserServiceLH {
     private listingService: ListingService, 
     private router: Router,
     private datastoreService: DataStoreService,
-    private notifierService: NotifierService
+    private notifierService: NotifierService,
     ) {
       this.collection = datastoreService.collection('requests', DataStoreType.Network);
       this.isDeleted = true;
