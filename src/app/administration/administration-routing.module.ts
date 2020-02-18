@@ -1,7 +1,9 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
-import { MessagesComponent } from '../contactMessage/add/add.component';
+import { AddComponent } from '../contactMessage/add/add.component';
+import { AllComponent } from '../contactMessage/all/all.component';
+
 
 
 const routes: Routes = [
@@ -15,7 +17,7 @@ const routes: Routes = [
             },
             {
                 path: 'contact',
-                component: MessagesComponent,
+                component: AddComponent,
                 canActivate: [AuthGuard],
                 data: {
                     isLogged: true
@@ -23,7 +25,7 @@ const routes: Routes = [
             },
             {
                 path: 'messages',
-                component: MessagesComponent,
+                component: AllComponent,
                 canActivate: [AuthGuard],
                 data: {
                     isAdmin: true

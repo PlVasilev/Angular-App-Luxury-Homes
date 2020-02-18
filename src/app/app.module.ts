@@ -16,6 +16,7 @@ import { UserServiceLH } from './user/user.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 import { AdministrationModule } from './administration/administration.module';
+import { AllComponent } from './contactMessage/all/all.component';
 
 
 
@@ -73,6 +74,7 @@ const customNotifierOptions: NotifierOptions = {
     LandingComponent,
     NotFoundComponent,
     NotAuthorizedComponent,
+    AllComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ import { AdministrationService } from '../../administration/administration.servi
   templateUrl: './add.component.html',
   styleUrls: ['./add.component.css']
 })
-export class MessagesComponent implements OnInit {
+export class AddComponent implements OnInit {
 
   constructor(private userService:UserServiceLH, private administrationService:AdministrationService) { }
 

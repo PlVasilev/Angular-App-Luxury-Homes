@@ -1,0 +1,24 @@
+<div class="jumbotron">
+    <h1 *ngIf="allMessages && allMessages.length == 0" >THERE ARE NO MESSAGES FROM USERS</h1>
+  <table *ngIf="allMessages && allMessages.length > 0"  class="table table-striped">
+    <thead>
+    <tr>  
+      <th  style="width: 13.00%">Send On</th>
+      <th  style="width: 8.00%">Send By</th>
+      <th  style="width: 12.00%">Subject</th>
+      <th  style="width: 60.00%">Content</th>
+      <th  style="width: 7.00%">Remove</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let message of allMessages">
+      <td>{{message.sendOn | date: 'medium'}}</td>
+      <td>{{ message.sendby }}</td>
+      <td>{{ message.subject  }}</td>
+      <td>{{ message.content  }}</td>
+      <td><button class="btn btn-secondary" (click)="removeMessage(message._id)">Remove</button></td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  
