@@ -10,7 +10,7 @@
         <!-- Grid column -->
         <div class="col-md-2 ">
           <h6 class="text-uppercase font-weight-bold">
-            <a routerLink="/user/login">Home</a>
+            <a routerLink="/">Home</a>
           </h6>
         </div>
         <!-- Grid column -->
@@ -32,9 +32,9 @@
         <!-- Grid column -->
   
         <!-- Grid column -->
-        <div class="col-md-2 ">
+        <div *ngIf="currentUser" class="col-md-2 ">
           <h6 class="text-uppercase font-weight-bold">
-            <a routerLink="">Contact us</a>
+            <a routerLink="/administration/contact">Contact us</a>
           </h6>
         </div>
         <!-- Grid column -->

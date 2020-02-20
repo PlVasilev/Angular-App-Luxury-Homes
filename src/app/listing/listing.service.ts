@@ -14,16 +14,12 @@ export class ListingService {
   allListings: IListing[];
   selectedListing: IListing;
   searchCollection: IListing[];
-  isDeleted: boolean;
-  isFound: boolean;
 
   constructor(
     datastoreService: DataStoreService,
      private router: Router,
      private notifierService: NotifierService) {
     this.collection = datastoreService.collection('listings', DataStoreType.Network);
-    this.isDeleted = true;
-    this.isFound = true;
   }
 
   searchListings(value: ISearch) {
@@ -39,39 +35,34 @@ export class ListingService {
     this.router.navigate(['listing/search']);
   }
 
-  deleteListing(id) {
-    this.selectedListing = null;
-    this.collection.removeById(id)
-      .then(function onSuccess(result) {
-      }).catch(function onError(error) {
-        console.log(error);
-      });
-    localStorage.removeItem('currentListing');
-    this.router.navigate(['listing/all']);
-    this.isDeleted ? 
-    this.notifierService.notify("success", "The Property has been removed!") :
-    this.notifierService.notify("error", "There was problem removing the propery please try again latter!");
+  deleteListing(id) {    
+    if(this.allListings.length == this.allListings.filter(x => x._id != id).length){
+      this.notifierService.notify("error", "There was problem removing the propery please try again latter!");
+    }else{
+      this.selectedListing = null;
+      this.collection.removeById(id);
+      localStorage.removeItem('currentListing');
+      this.router.navigate(['listing/all']);
+      this.notifierService.notify("success", "The Property has been removed!");
+    }
   }
 
   findById(id: string) {
     this.collection.findById(id)
       .subscribe((entity) => {
         this.selectedListing = entity as IListing;
-        console.log(this.selectedListing);
+        this.notifierService.notify("success", "You have selected Propery!");
       }, (error) => {
+        this.notifierService.notify("error", "There was problem selecting the propery please try again latter!");
         console.log(error);
-      });
-      this.isDeleted ? 
-    this.notifierService.notify("success", "You have selected Propery!") :
-    this.notifierService.notify("error", "There was problem selecting the propery please try again latter!");
+      });   
   }
 
   async getAllListings() {
     this.collection.find()
       .subscribe((entities) => {
         this.allListings = entities as IListing[];
-        this.notifierService.notify("success", "All properties are been fetched successfully!");
-        //console.log(entities)
+       // this.notifierService.notify("success", "All properties are been fetched successfully!");
       }, (error) => {
         console.log(error);
         this.notifierService.notify("error", "There was problem loading the properties for you please try again latter!");

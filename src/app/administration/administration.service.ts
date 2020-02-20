@@ -3,6 +3,7 @@ import { DataStoreService, DataStoreType } from 'kinvey-angular-sdk';
 import { IMessage } from '../shared/Interfaceses/message';
 import { NotifierService } from 'angular-notifier';
 import { Router } from '@angular/router';
+import { async } from '@angular/core/testing';
 
 @Injectable({
   providedIn: 'root'
@@ -31,24 +32,21 @@ export class AdministrationService {
         this.notifierService.notify("error", "There was problem sending the message to the site owner please try again latter!");
       });
       this.router.navigate(['listing/all']);
-      console.log(savedEntity);
+     // console.log(savedEntity);
     } catch (error) {
       console.log(error);
     }
   }
 
   deleteMessage(id) {
-    this.collection.removeById(id)
-      .then(function onSuccess(result) {
-        this.isDeleted = true;
-      }).catch(function onError(error) {
-        this.isDeleted = false;
-        console.log(error);
-      });
+      var messegesLenght = this.messages.length;
+      this.collection.removeById(id)
       this.messages = this.messages.filter(x => x._id != id);
-      this.isDeleted ? this.notifierService.notify("success", "The message has been removed!") :
-      this.notifierService.notify("error", "There was problem removing the message please try again latter!");
-     
+      if(messegesLenght == this.messages.length){
+        this.notifierService.notify("error", "There was problem removing the message please try again latter!");
+      }else{
+        this.notifierService.notify("success", "The message has been removed!");
+      }   
   }
   
   async getAllMessags() {
@@ -56,8 +54,8 @@ export class AdministrationService {
       .subscribe((entities) => {
         this.messages = entities as IMessage[];
         this.messages.sort((a, b) => a.sendOn - b.sendOn);
-        console.log(entities)
-        this.notifierService.notify("success", "Messages are been fetched successfully!");
+       // console.log(entities)
+      //  this.notifierService.notify("success", "Messages are been fetched successfully!");
       }, (error) => {
        this.notifierService.notify("error", "There was problem loading the messages for you please try again latter!");
         console.log(error);

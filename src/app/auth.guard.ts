@@ -19,10 +19,10 @@ export class AuthGuard implements CanActivate {
         this.isLogged = true;
         if(this.userService.user.username === "admin") {
           this.isAdmin = true;
-          console.log(this.isAdmin);
+         // console.log(this.isAdmin);
           
         }else{
-          console.log(this.isAdmin);
+        //  console.log(this.isAdmin);
         }
     }
 

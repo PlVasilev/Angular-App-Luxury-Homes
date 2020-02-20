@@ -25,7 +25,7 @@
           <p>Posted on: {{selectedListing.postedOn}}</p>
           <p>Posted by: {{selectedListing.postedBy}}</p>
           <p>Description: {{selectedListing.description}}</p>
-          <a class="btn btn-primary" (click)="sendRequestHandler()">Send Reqest to view the property</a>
+          <a *ngIf="user && user.data.username != selectedListing.postedBy" class="btn btn-primary" (click)="sendRequestHandler()">Send Reqest to view the property</a>
             <a *ngIf="user && user.data.username == selectedListing.postedBy" routerLink="/listing/edit" class="btn btn-primary">Edit</a>
             <a *ngIf="user && user.data.username == selectedListing.postedBy"  (click)="deleteHandler(selectedListing._id)" 
             class="btn btn-primary">Delete</a>

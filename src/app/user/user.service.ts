@@ -16,7 +16,6 @@ export class UserServiceLH {
   collection: any;
   allRequests: IRequest[];
   private readonly notifier: NotifierService;
-  isDeleted: boolean;
 
   constructor(
     private userService: UserService, 
@@ -24,25 +23,18 @@ export class UserServiceLH {
     private router: Router,
     private datastoreService: DataStoreService,
     private notifierService: NotifierService,
-    ) {
-      this.collection = datastoreService.collection('requests', DataStoreType.Network);
-      this.isDeleted = true;
-    }
+    ) {this.collection = datastoreService.collection('requests', DataStoreType.Network);}
 
   user: User  =  this.userService.getActiveUser();
   
   deleteRequest(id) {
-    this.collection.removeById(id)
-      .then(function onSuccess(result) {
-        this.isDeleted = true;
-      }).catch(function onError(error) {
-        this.isDeleted = false;
-        console.log(error);
-      });
-      this.allRequests = this.allRequests.filter(x => x._id != id);
-      this.isDeleted ? this.notifierService.notify("success", "The request has been removed!") :
-      this.notifierService.notify("error", "There was problem removing the request please try again latter!");
-     
+      this.collection.removeById(id);
+      if(this.allRequests == this.allRequests.filter(x => x._id != id)){
+        this.notifierService.notify("error", "There was problem removing the request please try again latter!");
+      }else{
+        this.notifierService.notify("success", "The request has been removed!");
+        this.allRequests = this.allRequests.filter(x => x._id != id);
+      }     
   }
   
   async getAllReqests() {
@@ -52,8 +44,8 @@ export class UserServiceLH {
       .subscribe((entities) => {
         this.allRequests = entities as IRequest[];
         this.allRequests.sort((a, b) => a.requestedOn - b.requestedOn);
-        console.log(entities)
-        this.notifierService.notify("success", "Requests are been fetched successfully!");
+       // console.log(entities)
+       // this.notifierService.notify("success", "Requests are been fetched successfully!");
       }, (error) => {
        this.notifierService.notify("error", "There was problem loading the requests for you please try again latter!");
         console.log(error);
@@ -62,8 +54,7 @@ export class UserServiceLH {
 
   async saveRequest(entity: IRequest) {
     try {
-      console.log(entity);
-
+     // console.log(entity);
       const savedEntity = await this.collection.save(entity).then((result) => {
         this.notifierService.notify("success", "Request has been send to the owner!");
       }).catch((error) => {
@@ -71,7 +62,7 @@ export class UserServiceLH {
         this.notifierService.notify("error", "There was problem sending the request to the owner please try again latter!");
       });
       this.router.navigate(['listing/all']);
-      console.log(savedEntity);
+     // console.log(savedEntity);
     } catch (error) {
       console.log(error);
     }
@@ -81,7 +72,7 @@ export class UserServiceLH {
     try {
       data.role = "user";
       this.user = await this.userService.signup(data);
-      console.log(this.user);
+    //  console.log(this.user);
        this.router.navigate(['listing/all']);
       return true
     } catch (error) {
@@ -106,7 +97,7 @@ export class UserServiceLH {
       await this.userService.logout();
      this.user= null;
      this.listingService.allListings = null;
-     console.log( this.user);
+    // console.log( this.user);
      this.allRequests = null;
      this.notifierService.notify("success", "You have logged out!");
      localStorage.clear();

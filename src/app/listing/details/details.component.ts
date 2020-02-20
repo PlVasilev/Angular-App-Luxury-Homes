@@ -37,7 +37,7 @@ export class DetailsComponent implements OnInit {
       email: this.userServiceLH.user.email,
       postedBy: this.selectedListing.postedBy   
     };
-    console.log(currentRequest);
+   // console.log(currentRequest);
     
    this.userServiceLH.saveRequest(currentRequest)
   }
