@@ -20,13 +20,13 @@ the messages send via contact us form.
 ## Entities
 
 ### User 
-  _id: string
-  Username: string
-  Password: string
-  Email: string
-  FirstName: string
-  LastName: string
-  Phone Number: string
+    _id: string;
+    Username: string
+    Password: string
+    Email: string
+    FirstName: string
+    LastName: string
+    Phone Number: string
 
 ### Listing 
     _id: string;
@@ -50,10 +50,11 @@ the messages send via contact us form.
     subject: string;
     content: string;
 
-### Request
-  _id: string;
-  requestedOn: number;
-  name: string;
-  requestedBy: string;
-  email: string;
-  postedBy: string;
+### Request 
+    _id: string;
+    requestedOn: number;
+    name: string;
+    requestedBy: string;
+    email: string;
+    postedBy: string;
+
