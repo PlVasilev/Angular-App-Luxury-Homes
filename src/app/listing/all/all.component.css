@@ -11,3 +11,9 @@ div.invalid-feedback, div.search-text-error{
     justify-content: center;
 }
 
+.listing-sections h1{
+padding-top: 1em;
+   text-align: center;
+};
+
+

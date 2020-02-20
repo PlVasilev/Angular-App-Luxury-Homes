@@ -1,4 +1,7 @@
-<div class="jumbotron">
+<div *ngIf="!allRequests" class="jumbotron">
+  <h1>LOADING...</h1>
+</div>
+<div *ngIf="allRequests" class="jumbotron">
   <h1 *ngIf="allRequests && allRequests.length == 0" >THERE ARE NO REQUEST FOR YOUR PROPERTIES</h1>
 <table *ngIf="allRequests && allRequests.length > 0"  class="table table-striped">
   <thead>

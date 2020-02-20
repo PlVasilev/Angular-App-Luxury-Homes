@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { AuthGuard } from '../auth.guard';
-import { AddComponent } from '../contactMessage/add/add.component';
-import { AllComponent } from '../contactMessage/all/all.component';
+import { AddComponent } from './contactMessage/add/add.component';
+import { AllComponent } from './contactMessage/all/all.component';
 
 
 

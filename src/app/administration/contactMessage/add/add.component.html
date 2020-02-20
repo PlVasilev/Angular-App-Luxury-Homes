@@ -18,7 +18,7 @@
                 <label class="text-black" for="subject">Subject</label> 
                 <input #subjectInput="ngModel" ngModel name="subject" id="subject" class="form-control" placeholder="Address"
                 [class.is-valid]="!subjectInput.errors && subjectInput.touched"
-                [class.is-invalid]="subjectInput.errors && subjectInput.touched" required pattern="^[\w\s]{3,}$">
+                [class.is-invalid]="subjectInput.errors && subjectInput.touched" required pattern="^[\w\s,.`':;()&]{3,}$">
                 <div *ngIf="subjectInput.errors && subjectInput.touched" class="invalid-feedback">Input must be least 3
                   characters log.</div>
               </div>
@@ -29,7 +29,7 @@
                 <label class="text-black" for="message">Message</label> 
                 <textarea #messageInput="ngModel" ngModel name="content" id="content" cols="30" rows="7" class="form-control" placeholder="Write your notes or questions here..."
                 [class.is-valid]="!messageInput.errors && messageInput.touched"
-                [class.is-invalid]="messageInput.errors && messageInput.touched" required pattern="^[\w\s]{3,}$">
+                [class.is-invalid]="messageInput.errors && messageInput.touched" required pattern="^[\w\s,.`':;()&]{3,}$">
                 <div *ngIf="descriptionInput.errors && descriptionInput.touched" class="invalid-feedback">Input must be least 3
                   characters log.</div>
                 </textarea>

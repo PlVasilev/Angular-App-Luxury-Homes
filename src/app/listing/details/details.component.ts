@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ListingService } from '../listing.service';
 import { UserServiceLH } from 'src/app/user/user.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -11,6 +11,7 @@ import { IRequest } from 'src/app/shared/Interfaceses/request';
   styleUrls: ['./details.component.css']
 })
 export class DetailsComponent implements OnInit {
+ 
 
   get selectedListing(){ return this.listingService.selectedListing}
 
@@ -42,6 +43,7 @@ export class DetailsComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.listingService.selectedListing = null;
     this.listingService.findById(this.activatedRoute.snapshot.params.id)
     localStorage.setItem("currentListing", JSON.stringify(this.selectedListing))   
   }

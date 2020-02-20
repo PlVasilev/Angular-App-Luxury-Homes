@@ -1,27 +1,59 @@
-# LuxuryHomes
+# Project - Luxury-Homes 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.23.
+## Type - System For listing properties on the market 
 
-## Development server
+## Description
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+This is a simple site for listing properties on the market as seller 
+and as buyer you can send rquest to view properies to the seller.
 
-## Code scaffolding
+Not logged user can only see landing page register and login.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Logged in User can add listing, edit it and remove it.
+Logged in Uesr can view all listings choose from them and
+send request to see them and probably after that buy them.
+Logged in Uesr can send message to site admin via contact us form.
 
-## Build
+Admin is only one he has all abilities as user plus he can read
+the messages send via contact us form.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+## Entities
 
-## Running unit tests
+### User 
+  _id: string
+  Username: string
+  Password: string
+  Email: string
+  FirstName: string
+  LastName: string
+  Phone Number: string
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Listing 
+    _id: string;
+    title: string;
+    description: string;
+    city: string;
+    address: string;
+    yearOfConstruction: number;
+    price: number;
+    size: number;
+    rooms: number;
+    floor: number;
+    postedOn: string;
+    postedBy: string;
+    imageUrl: string;
 
-## Running end-to-end tests
+### Message 
+    _id: string;
+    sendOn?: number;
+    sendby?: string;
+    subject: string;
+    content: string;
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+### Request
+  _id: string;
+  requestedOn: number;
+  name: string;
+  requestedBy: string;
+  email: string;
+  postedBy: string;

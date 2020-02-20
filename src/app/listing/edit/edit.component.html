@@ -11,7 +11,7 @@
             </div>
             <input #titleInput="ngModel" [ngModel]="listing.title" name="title" class="form-control"  
               [class.is-valid]="!titleInput.errors && titleInput.touched"
-              [class.is-invalid]="titleInput.errors && titleInput.touched" required pattern="^[\w\s]{3,}$">
+              [class.is-invalid]="titleInput.errors && titleInput.touched" required pattern="^[\w\s,.`':;()&]{3,}$">
             <div *ngIf="titleInput.errors && titleInput.touched" class="invalid-feedback">Input must be least 3
               characters log.</div>
           </div>
@@ -21,7 +21,7 @@
             </div>
             <input #cityInput="ngModel" [ngModel]="listing.city" name="city" class="form-control" placeholder="City"
               [class.is-valid]="!cityInput.errors && cityInput.touched"
-              [class.is-invalid]="cityInput.errors && cityInput.touched" required pattern="^[\w\s]{3,}$">
+              [class.is-invalid]="cityInput.errors && cityInput.touched" required pattern="^[\w\s,.`':;()&]{3,}$">
             <div *ngIf="cityInput.errors && cityInput.touched" class="invalid-feedback">Input must be least 3
               characters log.</div>
           </div>
@@ -61,7 +61,7 @@
             </div>
             <input #addressInput="ngModel" [ngModel]="listing.address" name="address" class="form-control" placeholder="Address"
               [class.is-valid]="!addressInput.errors && addressInput.touched"
-              [class.is-invalid]="addressInput.errors && addressInput.touched" required pattern="^[\w\s]{3,}$">
+              [class.is-invalid]="addressInput.errors && addressInput.touched" required pattern="^[\w\s,.`':;()&]{3,}$">
             <div *ngIf="addressInput.errors && addressInput.touched" class="invalid-feedback">Input must be least 3
               characters log.</div>
           </div>
@@ -71,7 +71,7 @@
             </div>         
             <textarea #descriptionInput="ngModel" [ngModel]="listing.description" name="description" class="form-control" placeholder="Description"
                [class.is-valid]="!descriptionInput.errors && descriptionInput.touched"
-              [class.is-invalid]="descriptionInput.errors && descriptionInput.touched" required pattern="^[\w\s]{3,}$"></textarea>
+              [class.is-invalid]="descriptionInput.errors && descriptionInput.touched" required pattern="^[\w\s,.`':;()&]{3,}$"></textarea>
             <div *ngIf="descriptionInput.errors && descriptionInput.touched" class="invalid-feedback">Input must be least 3
               characters log.</div>
           </div>

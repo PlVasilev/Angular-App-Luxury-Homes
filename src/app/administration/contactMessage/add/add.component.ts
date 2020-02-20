@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { IMessage } from 'src/app/shared/Interfaceses/message';
 import { UserServiceLH } from 'src/app/user/user.service';
-import { AdministrationService } from '../../administration/administration.service';
+import { AdministrationService } from '../../../administration/administration.service';
 
 @Component({
   selector: 'app-messages',

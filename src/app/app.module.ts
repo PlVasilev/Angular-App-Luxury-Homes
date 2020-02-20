@@ -16,7 +16,7 @@ import { UserServiceLH } from './user/user.service';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 import { AdministrationModule } from './administration/administration.module';
-import { AllComponent } from './contactMessage/all/all.component';
+import { AllComponent } from './administration/contactMessage/all/all.component';
 
 
 

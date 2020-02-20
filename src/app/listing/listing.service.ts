@@ -70,7 +70,7 @@ export class ListingService {
     this.collection.find()
       .subscribe((entities) => {
         this.allListings = entities as IListing[];
-        this.notifierService.notify("success", "Properties are been fetched successfully!");
+        this.notifierService.notify("success", "All properties are been fetched successfully!");
         //console.log(entities)
       }, (error) => {
         console.log(error);

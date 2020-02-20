@@ -1,3 +1,6 @@
+<div *ngIf="!allMessages" class="jumbotron">
+  <h1>LOADING...</h1>
+</div>
 <div class="jumbotron">
     <h1 *ngIf="allMessages && allMessages.length == 0" >THERE ARE NO MESSAGES FROM USERS</h1>
   <table *ngIf="allMessages && allMessages.length > 0"  class="table table-striped">
