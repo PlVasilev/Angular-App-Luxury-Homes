@@ -41,6 +41,7 @@ export class ListingService {
     }else{
       this.selectedListing = null;
       this.collection.removeById(id);
+      this.allListings = null;
       localStorage.removeItem('currentListing');
       this.router.navigate(['listing/all']);
       this.notifierService.notify("success", "The Property has been removed!");
