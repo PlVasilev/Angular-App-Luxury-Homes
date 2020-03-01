@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { LandingComponent } from './landing/landing.component';
-import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
+import { NotFoundComponent } from './core/not-found/not-found.component';
+import { LandingComponent } from './core/landing/landing.component';
+import { NotAuthorizedComponent } from './core/not-authorized/not-authorized.component';
 
 
 const routes: Routes = [

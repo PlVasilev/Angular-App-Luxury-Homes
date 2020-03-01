@@ -7,14 +7,11 @@ import { NotifierModule, NotifierOptions } from "angular-notifier";
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { LandingComponent } from './landing/landing.component';
 import { ListingModule } from './listing/listing.module';
 import { ListingService } from './listing/listing.service';
 import { HttpClientModule } from '@angular/common/http';
 import { UserModule } from './user/user.module';
 import { UserServiceLH } from './user/user.service';
-import { NotFoundComponent } from './not-found/not-found.component';
-import { NotAuthorizedComponent } from './not-authorized/not-authorized.component';
 import { AdministrationModule } from './administration/administration.module';
 import { AllComponent } from './administration/contactMessage/all/all.component';
 
@@ -71,9 +68,6 @@ const customNotifierOptions: NotifierOptions = {
 @NgModule({
   declarations: [
     AppComponent,
-    LandingComponent,
-    NotFoundComponent,
-    NotAuthorizedComponent,
     AllComponent,
   ],
   imports: [

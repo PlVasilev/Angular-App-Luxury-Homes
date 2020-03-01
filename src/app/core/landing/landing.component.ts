@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { UserServiceLH } from '../user/user.service';
+import { UserServiceLH } from '../../user/user.service';
+import { UserService } from 'kinvey-angular-sdk';
 
 @Component({
   selector: 'app-landing',
