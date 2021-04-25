@@ -1,8 +1,12 @@
 # Project - Luxury-Homes 
 
-## Type - System For listing properties on the market 
+## Angular, Type Script, Kinvey
+
+### Since my free trial of Kunvey console has expired, with no database the app is no longer functional.
 
 ## Description
+
+### Type - System For listing properties on the market 
 
 This is a simple site for listing properties on the market as seller 
 and as buyer you can send rquest to view properies to the seller.
